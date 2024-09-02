@@ -5,14 +5,213 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events</title>
-    <link rel="shortcut icon" href="images/alogo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/alogo.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style type="text/css">
+      :root {
+  --size: 1;
+  --background: #e8e8e8;
+  --color1: #d25778;
+  --color2: #ec585c;
+  --color3: #e7d155;
+  --color4: #56a8c6;
+}
+
+
+html {
+  color-scheme: dark; /* for the scrollbar */
+}
+
+body {
+  background: #e8e8e8;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+.ticket-visual_visual {
+  width: 650px;
+  height: 320px;
+  margin: 100px auto;
+  position: relative;
+  transition: all 300ms cubic-bezier(0.03, 0.93, 0.53, 0.99) 0s;
+  /* border: 5px solid #fff; */
+  /* gradient code below */
+  padding: 5px;
+/*  background: linear-gradient(
+    to right,
+    var(--color1),
+    var(--color2),
+    var(--color3),
+    var(--color4)
+  );*/
+  border-radius: 20px;
+  background: #000000;
+}
+
+/* The half circles on the sides of the card */
+.ticket-visual_visual::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 130px;
+    left: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 2;
+    background: black;
+}
+
+.ticket-visual_visual::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 130px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: black;
+    z-index: 2;
+}
+
+.ticket-visual-wrapper {
+  width: 100%;
+  height: 100%;
+  background: darkgrey;
+  border-radius: 15px;
+  position: relative;
+}
+
+.ticket-visual-wrapper::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 130px;
+    left: -30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--background);
+    z-index: 3;
+}
+.ticket-visual-wrapper::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 130px;
+    right: -30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--background);
+    z-index: 3;
+}
+
+.ticket-visual_profile {
+  padding: calc(39px * var(--size)) calc(155px * var(--size))
+    calc(39px * var(--size)) calc(58px * var(--size));
+}
+
+.ticket-profile_profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.ticket-event {
+  margin-top: 25px;
+  margin-left: -10px;
+}
+
+.ticket-profile_image {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+}
+
+.ticket-profile_name {
+  font-size: calc(32px * var(--size));
+  margin: 0px 0 5px 20px;
+  font-weight: 700;
+}
+
+.ticket-profile_username {
+  margin: 0 0 5px 20px;
+  color: #8a8f98;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+
+.ticket-visual_ticket-number-wrapper {
+  position: absolute;
+  right: 35px;
+  bottom: 0;
+}
+
+.ticket-visual_ticket-number {
+  transform: rotate(90deg) translateY(calc(100px * var(--size)));
+  transform-origin: bottom right;
+  font-size: calc(40px * var(--size));
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 35px;
+  width: 310px;
+  border-bottom: 2px dashed #333;
+}
+
+/* Now let's add the gradient border */
+
+/* Cutting the circles in halves */
+.left, .right{
+    position: absolute;
+    top: 110px;
+    width: 50px;
+    height: 100px;
+    background: var(--background);
+    z-index: 4;
+}
+
+.left {
+    left: -50px;
+}
+
+.right {
+    right: -50px;
+}
+
+a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+
+/* implement hover animation with javascript */
+    </style>
 </head>
 <body>
-  <div>
+  <!-- <div>
       <img src="images/earth.png" width="80%" height="auto" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -45%);">
 
-  </div>
+  </div> -->
+
+
   <nav>
     <ul class="sidebar">
       <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
@@ -41,6 +240,31 @@
     }
   </script>
 
+
+<div class="ticket-visual_visual" id="ticket" class="eve">
+      <div class="left"></div>
+      <div class="right"></div>
+       <div class="ticket-visual-wrapper">
+        <div class="ticket-visual_profile">
+          <div class="ticket-profile_profile">
+            <img
+              src="images\algorand_logo_mark_black.png"
+              alt="madflows"
+              class="ticket-profile_image"
+            />
+            <div class="ticket-profile_text">
+              <p class="ticket-profile_name">ABCMLRITM Inaguration</p>
+              <!-- Refactored html -->
+            </div>
+          </div>
+          <div class="ticket-event">
+          <img src="./event-logos.png" />
+        </div>
+        <div class="ticket-visual_ticket-number-wrapper">
+          <div class="ticket-visual_ticket-number"><a href="https://lu.ma/oa05fsyx" target="_blank">REGISTER</a></div>
+        </div>
+      </div>
+    </div>
 
 
 </body>
